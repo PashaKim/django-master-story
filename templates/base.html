@@ -1,0 +1,32 @@
+<!--
+Design by Bryant Smith
+http://www.bryantsmith.com
+http://www.aszx.net
+Released absolutely free to use anywhere, all I ask is that you kindly leave the link back at the bottom.
+
+Name       : A Subtle Beige
+Description: Two column (w/ one micro column for links)
+Version    : 1.0
+Released   : 20081008
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    {% block title %}{% endblock title %}
+    {% include 'meta.html' %}
+    {% include 'header_scripts.html' %}
+    {% block extra_head %}{% endblock extra_head %}
+</head>
+
+<body>
+<div id="page">
+    {% include 'header.html' %}
+
+    {% block content %}{% endblock content %}
+
+    {% include 'footer.html' %}
+    {% include 'footer_scripts.html' %}
+    {% block extra_footer %}{% endblock extra_footer %}
+</div>
+</body>
+</html>
