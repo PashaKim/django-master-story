@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #333333 url(../img/img01.gif) repeat-x;
+    /*background: #333333 url(../img/img01.gif) repeat-x;*/
     text-align: justify;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -175,4 +175,17 @@ p {
     /*text-indent: 20px;*/
     line-height: 1.5;
     word-break: break-all;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    width: 100px;
+    height: 100px;
 }
