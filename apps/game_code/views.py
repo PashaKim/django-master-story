@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from apps.game_code.utils import Arrow, Hero
 
+
 def main(request):
     return render(request, 'game_code/main.html', context={})
 

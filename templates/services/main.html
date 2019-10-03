@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title> Services | Story </title>
+{% endblock %}
+
+{% block content %}
+    <div id="pageContent">
+
+        <div class="articleTitle">Cоздатель приключений</div>
+        <div class="articleContent">
+            <div class="rightLinks">
+                <div class="linkTitle">Ссылки:</div>
+                <p class="links">
+                    <a href="{% url 'generator_world' %}">Сгенерировать<br> Мир</a><br/>
+                </p>
+            </div>
+            <p> &emsp;&emsp;&emsp;Пишете ли вы своё приключение или используете уже готовое, будьте готовы потратить
+                время на приготовления, а не только на часы, которые вы проведёте за игровым столом. Вам придётся найти
+                время и потренироваться в креативности, чтобы сочинить хороший сюжет, создать новых персонажей Мастера,
+                придумать сражения, и продумать способы раскрытия сюжетных событий.</p>
+        </div>
+
+
+    </div>
+{% endblock %}
