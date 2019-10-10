@@ -30,9 +30,10 @@
             </p>
             <br>
             <p>
-             <i>В {{ place_of_adventure.title }} "{{ city_name }}" начинается ваша история.</i><br>
+             <i>В {{ start_settlement.title }} "{{ start_settlement.name }}"
+                 начинается ваша история.</i><br>
                 <ul>
-                    {% for name, desc in place_of_adventure.description.items %}
+                    {% for name, desc in start_settlement.description.items %}
                         <li><i>{{ name }}</i> {{ desc }}</li>
                     {% endfor %}
                 </ul>

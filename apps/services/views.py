@@ -1,8 +1,11 @@
 from django.shortcuts import render
-from apps.services.utils import World, Pantheon
+from apps.services.utils import World, Pantheon, Event, Company, Adventure
 
 pantheon = Pantheon()
 world = World()
+event = Event()
+company = Company()
+adventure = Adventure()
 
 
 def main(request):
@@ -13,12 +16,18 @@ def generator_world(request):
     context = {'generator_type': 'мир',
                'world_assumptions': world.assumptions(),
                'gods_set': pantheon.gods_set(),
-               'place_of_adventure': world.place_of_adventure(),
-               'city_name': world.city_name()}
+               'start_settlement': world.settlement(),
+               }
     return render(request, 'services/generator/world.html', context=context)
 
 
 def generator_company(request):
-    context = {'place_of_adventure': world.place_of_adventure(),
-               'city_name': world.city_name()}
+    context = {'player_base': world.settlement(),
+               'vicinity_places': world.vicinity_list(),
+               'worldwide_shocking_event': event.worldwide_shocking_event(),
+               'company_them': company.theme(), 'company_genre': company.genre(),
+               'adventure_goal': adventure.goal(), 'adventure_villain': adventure.villain(),
+               'adventure_associate': adventure.associate(), 'adventure_patron': adventure.patron(),
+               'adventure_intro': adventure.intro(), 'adventure_ending': adventure.ending(),
+               }
     return render(request, 'services/generator/company.html', context=context)
