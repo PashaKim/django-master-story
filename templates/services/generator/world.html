@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title> Generator | Story </title>
+{% endblock %}
+
+{% block content %}
+    <div id="pageContent">
+        <div class="articleTitle">Генератор: <b style="text-transform: uppercase">{{ generator_type }}</b></div>
+        <div class="rightLinks">
+            <div class="linkTitle">Ссылки:</div>
+            <p class="links">
+                <a href="{% url 'generator_world' %}">Основы</a><br/>
+                <a href="{% url 'generator_world' %}">Пантеон</a><br/>
+                <a href="{% url 'generator_world' %}">Место</a><br/>
+            </p>
+        </div>
+        <div class="articleContent">
+            <p><i>Правила игры основаны на следующих ключевых предположениях:</i> <br>
+                <b>{{ world_assumptions.title }}</b> <br> &emsp; {{ world_assumptions.description }}
+            </p>
+            <br>
+            <p><i>Множество богов правят различными аспектами бытия, по-разному объединяясь и конкурируя друг с другом
+                с целью управления вселенной:</i>
+                <ul>{% for god in gods_set %}
+                    <li><b>{{ god.name }}</b> - {{ god.description }} </li>
+                    {% endfor %}
+                </ul>
+            </p>
+            <br>
+            <p>
+             <i>В {{ start_settlement.title }} "{{ start_settlement.name }}"
+                 начинается ваша история.</i><br>
+                <ul>
+                    {% for name, desc in start_settlement.description.items %}
+                        <li><i>{{ name }}</i> {{ desc }}</li>
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+    </div>
+{% endblock %}

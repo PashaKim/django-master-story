@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title> Services | Story </title>
+{% endblock %}
+
+{% block content %}
+    <div id="pageContent">
+
+        <div class="articleTitle">Cоздатель компаний</div>
+        <div class="articleContent">
+            <p>
+            <ul>
+                <li>База для игроков - <i>{{ player_base.title }} "{{  player_base.name }}"</i></li>
+{#                    <p>Это (большая/небольшая/крохотная) {деревня/город} стоящая на (реке, холме, торговом тракте, перекрестке дорог) возле (храма, замка, шахты, руин, горы, полей). Большенство  жителей (люди, эльфы, дворфы), заняты (ремеслом, торговлей, жречеством). Из интересных мест, тут представленны: (Гильдия, Организации, )</p>#}
+                <li>Окрестности:<ul>
+                    {% for vicinity in vicinity_places %}
+                        <li>{{ vicinity.distance }} миль на {{ vicinity.direction }}
+                            {{ vicinity.place.title }} "{{ vicinity.place.name }}" </li>
+                    {% endfor %}
+                </ul></li>
+                <li>События в кампании:<ul>{% for event in worldwide_shocking_event %}<li>{{ event }}</li>{% endfor %}</ul></li>
+                <li>Тема компании: <i>{{ company_them }}</i></li> <li>Жанр компании: <i>{{ company_genre }}</i></li>
+                <li>Начальное приключение:<ul>
+                    <li>Цель: {{ adventure_goal }}</li><li>Злодей: {{ adventure_villain }}</li>
+                    <li>Союзник: {{ adventure_associate }}</li><li>Покровители: {{ adventure_patron }}</li>
+                    <li>Введение: {{ adventure_intro }}</li><li>Заключение: {{ adventure_ending }}</li>
+                </ul></li>
+            </ul>
+            </p>
+        </div>
+
+
+    </div>
+{% endblock %}

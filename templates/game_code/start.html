@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title> Home | Story </title>
+{% endblock %}
+
+{% block content %}
+    <div id="pageContent">
+        <div class="articleTitle">Карта</div>
+        <div class="articleContent">
+            <table>
+                {% for row in map_row %}
+                    <tr>
+                        {% for id in row %}
+                            <td style="background: url('https://images.template.net/wp-content/uploads/2016/08/17121226/Meadow-Grass-Texture-Pattern.jpg')">
+                                {% if id.type == 9 %}
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="arrow" value="{{ id.value }}">
+
+                                        <button type="submit" style="background-color: transparent; border: 1px">
+                                            <img style="display:block; transform:rotate({{ id.deg }}deg);" width="100%"
+                                                 height="100%" src="{{ id.img }}"/>
+                                        </button>
+                                    </form>
+                                {% elif id != 0 %}
+                                    <img style="display:block; transform:rotate({{ id.deg }}deg);" width="100%"
+                                         height="100%" src="{{ id.img }}"/>
+                                {% endif %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
