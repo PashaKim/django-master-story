@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    <title> Character | Story </title>
+{% endblock %}
+
+{% block content %}
+    <div id="pageContent">
+        <div class="articleContent">
+            {% for key, value in backstory_dict.items %}
+                <p><b>{{ key |safe }}</b>: {{ value |safe }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

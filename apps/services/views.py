@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from apps.services.utils import World, Pantheon, Event, Company, Adventure
+from apps.services.utils_character import CharacterStory
 
 pantheon = Pantheon()
 world = World()
@@ -31,3 +32,9 @@ def generator_company(request):
                'adventure_intro': adventure.intro(), 'adventure_ending': adventure.ending(),
                }
     return render(request, 'services/generator/company.html', context=context)
+
+
+def generator_character_story(request):
+    Story = CharacterStory()
+    context = {'backstory_dict': Story.backstory}
+    return render(request, 'services/generator/character/story.html', context=context)
